@@ -6,8 +6,13 @@ char* password = "123456789";
 void setup()
 {
 WiFi.begin(ssid,password);
-while(WiFI.status()!=WL_CONNECT)
+Serial.begin(115200);
+while(WiFi.status()!=WL_CONNECTED)
 {
 Serial.print(".");
 delay(500);
+}
+Serial.println("");
+Serial.print("IP Address");
+Serial.print(WiFi.localIP());
 }
